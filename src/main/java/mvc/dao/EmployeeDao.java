@@ -28,4 +28,16 @@ public class EmployeeDao {
 		return manager.createNativeQuery("select * from employee",Employee.class).getResultList();
 	}
 
+	public void delete(Employee employee) {
+		// TODO Auto-generated method stub
+		transaction.begin();
+		manager.remove(employee);
+		transaction.commit();
+		
+	}
+
+	public Employee find(int id) {
+		return manager.find(Employee.class, id);
+	}
+
 }

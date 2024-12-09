@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import mvc.dto.Employee;
 import mvc.service.EmployeeService;
@@ -33,6 +34,11 @@ public class EmployeeController {
 	@GetMapping("/fetch")
 	public String fetch(ModelMap map) {
 		return service.fetch(map);
+	}
+	
+	@GetMapping("/delete")
+	public String delete(@RequestParam int id,ModelMap map) {
+		return service.delete(id,map);
 	}
 
 }

@@ -31,6 +31,13 @@ public class EmployeeService {
 			return "fetch.jsp";
 		}
 	}
+
+	public String delete(int id, ModelMap map) {
+		Employee employee=dao.find(id);
+		dao.delete(employee);
+		map.put("success", "Record Deleted Success");
+		return "fetch";
+	}
 	
 	
 }
